@@ -12,6 +12,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
+    @Override
     public void createUsersTable() {
         String sql = "CREATE TABLE IF NOT EXISTS usertable (" +
                 "id BIGINT AUTO_INCREMENT PRIMARY KEY, " +
@@ -26,6 +27,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void dropUsersTable() {
         String sql = "DROP TABLE IF EXISTS usertable";
         try (Connection connection = Util.getConnection();
@@ -36,6 +38,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void saveUser(String name, String lastName, byte age) {
         String sql = "INSERT INTO usertable (name, lastName, age) VALUES (?, ?, ?)";
         try (Connection connection = Util.getConnection();
@@ -49,6 +52,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void removeUserById(long id) {
         String sql = "DELETE FROM usertable WHERE id = ?";
         try (Connection connection = Util.getConnection();
@@ -60,6 +64,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM usertable";
@@ -80,6 +85,7 @@ public class UserDaoJDBCImpl implements UserDao {
         return users;
     }
 
+    @Override
     public void cleanUsersTable() {
         String sql = "TRUNCATE TABLE usertable";
         try (Connection connection = Util.getConnection();

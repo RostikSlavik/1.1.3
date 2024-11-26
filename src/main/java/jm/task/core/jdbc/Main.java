@@ -1,7 +1,10 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -14,6 +17,7 @@ public class Main {
         userService.saveUser("Jane", "Smith", (byte) 30);
         userService.saveUser("Paula", "Johnson", (byte) 20);
         userService.saveUser("Stephen", "Bowen", (byte) 48);
+        userService.saveUser("Paula", "Johnson", (byte) 20);
 
         userService.getAllUsers().forEach(user -> System.out.println(user));
 

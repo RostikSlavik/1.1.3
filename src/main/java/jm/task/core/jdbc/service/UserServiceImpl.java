@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(String name, String lastName, byte age) {
-        userDao.saveUser(name, lastName, age);
-        System.out.println("User с именем – " + name + " добавлен в базу данных");
+    public void saveUser(User user) {
+        userDao.saveUser(user);
+        System.out.println("User с именем – " + user.getName() + " добавлен в базу данных");
     }
 
     @Override
